@@ -24,7 +24,7 @@
 
 進入專案目錄
 
-    cd restaurant_list
+    cd Restaurant-List-main
 
 安裝套件
 
