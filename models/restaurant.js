@@ -9,9 +9,9 @@ const restaurantSchema = new Schema ({
     name_en : {
         type: String,
     },
-    category : {
-        type: String,
-        required: true
+    category: {
+        type : String,
+        required : true
     },
     image : {
         type: String,
@@ -36,7 +36,7 @@ const restaurantSchema = new Schema ({
     description : {
         type: String,
         required: true
-    },
+    }
 })
 
 module.exports = mongoose.model('Restaurant', restaurantSchema)

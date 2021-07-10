@@ -20,11 +20,12 @@
 <!-- restaurant list -->
 <div class="container mt-5">
     <div class="row">
-        <div class="col-md-10 col-12 mx-auto">
+        <div class="col-md-10 col-12 mx-auto mb-3">
             <div class="card-columns">
+                {{ error }}
                 {{#each restaurant}}
-                    <a href="/restaurants/{{this.id}}" class="text-secondary">
-                        <div class="card mb-3">
+                    <div>
+                        <div class="card mb-1">
                             <img class="card-img-top"
                                 src="{{this.image}}"
                                 alt="{{this.name}}">
@@ -39,10 +40,16 @@
                                     {{this.rating}}
                                     <i class="fas fa-star fa-xs"></i>
                                 </span>
-
                             </div>
                         </div>
-                    </a>
+                        <div class="mb-3 d-flex justify-content-end">
+                            <a href="/restaurants/{{this._id}}" class="text-secondary" role="button">Detail</a></a>
+                            <a href="/restaurants/{{this._id}}/edit" role="button" class="ml-2">Edit</a>
+                            <form action="./restaurants/{{this._id}}/delete" method="POST" style="display: inline;" class="ml-2">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </div>
                 {{/each}}
             </div>
         </div>
