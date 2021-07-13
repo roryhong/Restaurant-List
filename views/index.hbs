@@ -9,12 +9,12 @@
             </div>
         </div>
         <div class="mt-5">
-            <select class="form-select" aria-label="Default select example" style="width: 180px;" id="select">
+            <select class="form-select" aria-label="Default select example" style="width: 180px;">
                 <option selected>sort</option>
-                <option value="1">A -> Z</option>
-                <option value="2">Z -> A</option>
-                <option value="3">類別</option>
-                <option value="3">地區</option>
+                <option value="aToz">A -> Z</option>
+                <option value="zToa">Z -> A</option>
+                <option value="category">類別</option>
+                <option value="location">地區</option>
             </select>
         </div>
     </form>
@@ -47,7 +47,7 @@
                     <div class="mb-3 d-flex justify-content-end">
                         <a href="/restaurants/{{this._id}}/edit" role="button">Edit</a>
                         <a href="/restaurants/{{this._id}}" class="text-secondary ml-2" role="button">Detail</a></a>
-                        <form action="./restaurants/{{this._id}}/delete" method="POST" style="display: inline;"
+                        <form action="./restaurants/{{this._id}}?_method=DELETE" method="POST" style="display: inline;"
                             class="ml-2">
                             <button type="submit">Delete</button>
                         </form>

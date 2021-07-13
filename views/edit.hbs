@@ -1,5 +1,5 @@
 <div class="col-7 ml-auto mr-auto mt-3 ">
-    <form action="/restaurants/{{restaurant._id}}/edit" method="POST" style="width: 80%;" class="m-auto">
+    <form action="/restaurants/{{restaurant._id}}?_method=PUT" method="POST" style="width: 80%;" class="m-auto">
         <div>
             <label for="name">餐廳名稱</label>
             <input type="text" name="name" id="name" class="form-control" value="{{restaurant.name}}" required>
