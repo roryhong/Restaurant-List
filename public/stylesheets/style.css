@@ -11,17 +11,16 @@ header {
     color: #226089;
 }
 
-.banner {
+/* .banner {
     position: relative;
     z-index: -1;
     margin: -5px;
     height: 360px;
-    background: #dddddd center center url('https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5720/restaurants-list-cover.jpg');
     background-size: cover;
     filter: blur(3px);
-}
+} */
 
-.search-bar .search-bar-outer {
+/* .search-bar .search-bar-outer {
     margin: 0 auto;
     max-width: 680px;
     background-color: #fce2cf;
@@ -34,7 +33,7 @@ header {
 
 .search-bar .search-bar-inner h4 {
     color: #9b4b4b;
-}
+} */
 
 .form-control::placeholder {
     color: #aaaaaa;
@@ -105,4 +104,25 @@ header {
     color: #666666;
     font-size: 0.8rem;
 }
+
+.input-group {
+    max-width: 25%;
+    margin-top: 50px;
+}
+
+.input-group .form-control,
+.input-group button {
+    border-radius: 15px;
+}
+
+.container form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+ .container form .input-group {
+    margin-right: 250px;
+ }
+
 
