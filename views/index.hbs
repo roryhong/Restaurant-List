@@ -1,6 +1,6 @@
 <!-- search bar -->
 <div class="container search-bar">
-    <form action="/search">
+    <form action="/restaurants/search">
         <div class="input-group">
             <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
                 value="{{keyword}}" aria-describedby="search-button">
@@ -8,17 +8,20 @@
                 <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
             </div>
         </div>
-        <div class="mt-5">
-            <select class="form-select" aria-label="Default select example" style="width: 180px;">
-                <option selected>sort</option>
-                <option value="aToz">A -> Z</option>
-                <option value="zToa">Z -> A</option>
-                <option value="category">類別</option>
-                <option value="location">地區</option>
-            </select>
-        </div>
     </form>
 </div>
+<form method="POST" action="/sort">
+    <div class="mt-5">
+        <select class="form-select" aria-label="Default select example" style="width: 180px;" name="sort">
+            <option selected>sort</option>
+            <option value="aToz">A -> Z</option>
+            <option value="zToa">Z -> A</option>
+            <option value="category">類別</option>
+            <option value="location">地區</option>
+        </select>
+    </div>
+</form>
+
 
 
 <!-- restaurant list -->

@@ -2,6 +2,33 @@ const express = require('express')
 const router = express.Router()
 const Restaurants = require('../../models/restaurant')
 
+//search
+router.get('/search', (req , res) => {
+    const keyword = req.query.keyword.trim().toLowerCase()
+    Restaurants.find()
+      .lean()
+      .then( restaurants => {
+          if(keyword) {
+              restaurants = restaurants.filter( restaurant => 
+                  restaurant.name.toLowerCase().includes(keyword) ||
+                  restaurant.category.includes(keyword)
+              )
+          }
+          
+          if (restaurants.length === 0) {
+             const error = '很抱歉，找不到搜尋結果'
+             return res.render('index' , { error })
+          }
+          res.render('index', { restaurant : restaurants})
+      })
+      .catch(error => console.log(error))
+})
+
+//new頁面
+router.get('/new' , (req , res) => {
+    res.render('new')
+})
+
 //detail
 router.get('/:id', (req ,res) => {
     const id = req.params.id
