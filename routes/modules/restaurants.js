@@ -29,8 +29,8 @@ router.get('/search', (req , res) => {
              const error = '很抱歉，找不到搜尋結果'
              return res.render('index' , { error })
           }
-          //輸出keyword，搜尋時也能排序
-          res.render('index', { restaurant : restaurants , sortValue , sortData , keyword})
+
+          res.render('index', { restaurant : restaurants , sortValue , sortData })
       })
       .catch(error => console.log(error))
 })
@@ -38,15 +38,6 @@ router.get('/search', (req , res) => {
 //new頁面
 router.get('/new' , (req , res) => {
     res.render('new')
-})
-
-//detail
-router.get('/:id', (req ,res) => {
-    const id = req.params.id
-    return Restaurants.findById(id)
-      .lean()
-      .then( restaurant => res.render('detail', { restaurant }))
-      .catch(error => console.log(error))
 })
 
 //new : 增加餐廳
@@ -58,6 +49,15 @@ router.post('/' , (req ,res) => {
 
     return Restaurants.create({name , name_en , category , image , location , phone , google_map , rating , description})
       .then(() => res.redirect('/'))
+      .catch(error => console.log(error))
+})
+
+//detail
+router.get('/:id', (req ,res) => {
+    const id = req.params.id
+    return Restaurants.findById(id)
+      .lean()
+      .then( restaurant => res.render('detail', { restaurant }))
       .catch(error => console.log(error))
 })
 

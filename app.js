@@ -2,14 +2,16 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 const routes = require('./routes')
-const isEqual = require('./handlebarsHelper')
 const port = 3000
 const app = express()
 
 //執行mongoose
 require('./config/mongoose')
 
-app.engine('hbs', exphbs({defaultLayout : 'main', extname : '.hbs', helpers: {isEqual}}))
+app.engine('hbs', exphbs({defaultLayout : 'main', extname : '.hbs', helpers: {
+    isEqual (a , b) {
+    return a === b
+}}}))
 app.set('view engine','hbs')
 
 app.use(express.static('public'))
