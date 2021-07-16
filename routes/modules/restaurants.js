@@ -1,12 +1,22 @@
 const express = require('express')
-const router = express.Router()
 const Restaurants = require('../../models/restaurant')
+const sortData = require('../../config/sort.json')
+const router = express.Router()
 
 //search
 router.get('/search', (req , res) => {
     const keyword = req.query.keyword.trim().toLowerCase()
+    const sortValue = req.query.sortOption
+    const sort = {
+        nameAsc: { name: 'asc' },
+        nameDesc : { name: 'desc' },
+        category: { category: 'asc' },
+        location: { location: 'asc' },
+        rating: { rating: 'desc' }
+    }
     Restaurants.find()
       .lean()
+      .sort(sort[sortValue])
       .then( restaurants => {
           if(keyword) {
               restaurants = restaurants.filter( restaurant => 
@@ -19,7 +29,8 @@ router.get('/search', (req , res) => {
              const error = '很抱歉，找不到搜尋結果'
              return res.render('index' , { error })
           }
-          res.render('index', { restaurant : restaurants})
+          //輸出keyword，搜尋時也能排序
+          res.render('index', { restaurant : restaurants , sortValue , sortData , keyword})
       })
       .catch(error => console.log(error))
 })

@@ -1,0 +1,23 @@
+{
+   "nameASC": {
+       "value": "nameAsc",
+       "option": "A -> Z"
+   },
+   "nameDesc": {
+    "value": "nameDesc",
+    "option": "Z -> A"
+   },
+   "category": {
+     "value": "category",
+     "option": "類別"
+   },
+   "location": {
+     "value": "location",
+     "option": "地區"
+   },
+   "rating": {
+       "value": "rating",
+       "option": "評分"
+   }
+
+}

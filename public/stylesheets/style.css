@@ -108,21 +108,18 @@ header {
 .input-group {
     max-width: 25%;
     margin-top: 50px;
+    margin-right: 250px;
 }
+
+.container form {
+    display: flex;
+    justify-content: space-around;
+}
+
 
 .input-group .form-control,
 .input-group button {
     border-radius: 15px;
 }
-
-.container form {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
- .container form .input-group {
-    margin-right: 250px;
- }
 
 
